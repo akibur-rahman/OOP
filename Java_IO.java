@@ -5,7 +5,8 @@ public class Java_IO {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        // String str = scanner.next();
+        // String str = scanner.next(); //next method will only read one word and break
+        // before space. To read whole line, we need to use nextLine() method
         // int number = scanner.nextInt();
         // System.out.println("myString is: " + str);
         // System.out.println("myInt is: " + number);
