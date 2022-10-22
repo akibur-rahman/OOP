@@ -9,6 +9,9 @@ class Student
     {
         System.out.println("I can do anything.");
     }
+
+    public void setID(int i) {
+    }
 }
 
 public class ClassesAndObjects {
