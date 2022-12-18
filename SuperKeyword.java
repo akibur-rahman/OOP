@@ -1,16 +1,16 @@
 
-class Base {
+class Base2 {
 
     int a, b;
 
-    Base(int a) {
+    Base2(int a) {
         System.out.println("Base Class Overloaded constractor");
     }
 }
 
-class Derived extends Base {
+class Derived2 extends Base2 {
 
-    Derived(int a, int b) {
+    Derived2(int a, int b) {
         super(a);
         System.out.println("Derived Class Overloaded constractor");
     }
@@ -18,6 +18,6 @@ class Derived extends Base {
 
 public class SuperKeyword {
     public static void main(String[] args) {
-        Derived obj = new Derived(10, 20);
+        Derived2 obj = new Derived2(10, 20);
     }
 }
