@@ -1,1 +1,6 @@
 *.class
+/Project/Driving_License_Test/target/
+/Project/Driving License Test/nbproject/private/
+/Project/DrivingLicenseTest/nbproject/private/
+/Project/drivingLicenseTest/nbproject/private/
+/Project/drivingLicenseTest/build/
