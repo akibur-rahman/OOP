@@ -9,7 +9,7 @@ public class Questions extends JFrame implements ActionListener {
     String questions[][] = new String[10][5];
     String answers[][] = new String[10][2];
     String useranswers[][] = new String[10][1];
-    JLabel qno, question;
+    JLabel questionNo, question;
     JRadioButton opt1, opt2, opt3, opt4;
     ButtonGroup groupoptions;
     JButton next, submit;
@@ -28,10 +28,10 @@ public class Questions extends JFrame implements ActionListener {
         setLayout(null);
         
         
-        qno = new JLabel();
-        qno.setBounds(80, 80, 50, 30);
-        qno.setFont(new Font("Ariel", Font.PLAIN, 24));
-        add(qno);
+        questionNo = new JLabel();
+        questionNo.setBounds(80, 80, 50, 30);
+        questionNo.setFont(new Font("Ariel", Font.PLAIN, 24));
+        add(questionNo);
         
         question = new JLabel();
         question.setBounds(120, 80, 1900, 30);
@@ -199,7 +199,7 @@ public class Questions extends JFrame implements ActionListener {
      
     
     public void start(int count) {
-        qno.setText("" + (count + 1) + ". ");
+        questionNo.setText("" + (count + 1) + ". ");
         question.setText(questions[count][0]);
         opt1.setText(questions[count][1]);
         opt1.setActionCommand(questions[count][1]);
