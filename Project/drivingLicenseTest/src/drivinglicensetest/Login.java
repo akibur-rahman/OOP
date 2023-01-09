@@ -1,14 +1,17 @@
 package drivinglicensetest;
 
 
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+
 
 public class Login extends JFrame implements ActionListener{
  
     JButton Start, Exit;
     JTextField NID;
+    public static String nid;
     
     Login() {
         getContentPane().setBackground(Color.WHITE);
@@ -25,16 +28,17 @@ public class Login extends JFrame implements ActionListener{
         heading.setForeground(new Color(0, 0, 0));
         add(heading);
         
-        JLabel name = new JLabel("Enter your NID");
-        name.setBounds(810, 170, 300, 20);
-        name.setFont(new Font("Ariel", Font.BOLD, 18));
-        name.setForeground(new Color(0, 0, 0));
-        add(name);
+        JLabel nid = new JLabel("Enter your NID");
+        nid.setBounds(810, 170, 300, 20);
+        nid.setFont(new Font("Ariel", Font.BOLD, 18));
+        nid.setForeground(new Color(0, 0, 0));
+        add(nid);
         
         NID = new JTextField();
         NID.setBounds(735, 220, 300, 25);
         NID.setFont(new Font("Ariel", Font.BOLD, 20));
         add(NID);
+        
         
         Start = new JButton("Start");
         Start.setBounds(735, 270, 120, 25);
@@ -46,6 +50,7 @@ public class Login extends JFrame implements ActionListener{
         Exit.addActionListener(this);
         add(Exit);
         
+        
         setSize(1200, 500);
         setLocation(200, 150);
         setVisible(true);
@@ -53,13 +58,18 @@ public class Login extends JFrame implements ActionListener{
     
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == Start) {
-            String nid = NID.getText();
+            nid = NID.getText();
+           // writeFile();
             setVisible(false);
             new Questions(nid);
         } else if (ae.getSource() == Exit) {
             setVisible(false);
         }
     }
+    
+   
+      
+    
     
     public static void main(String[] args) {
         new Login();

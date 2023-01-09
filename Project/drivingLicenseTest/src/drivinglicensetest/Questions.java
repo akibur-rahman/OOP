@@ -19,10 +19,10 @@ public class Questions extends JFrame implements ActionListener {
     public static int count = 0;
     public static int score = 0;
     
-    String name;
+    String nid;
     
-    Questions(String name) {
-        this.name = name;
+    Questions(String nid) {
+        this.nid = nid;
         setBounds(50, 0, 1000, 600);
         getContentPane().setBackground(Color.WHITE);
         setLayout(null);
@@ -34,7 +34,7 @@ public class Questions extends JFrame implements ActionListener {
         add(qno);
         
         question = new JLabel();
-        question.setBounds(120, 80, 900, 30);
+        question.setBounds(120, 80, 1900, 30);
         question.setFont(new Font("Ariel", Font.PLAIN, 24));
         add(question);
         
@@ -192,69 +192,11 @@ public class Questions extends JFrame implements ActionListener {
                 }
             }
             setVisible(false);
-            new Score(name, score);
+            new Score(nid, score);
         }
     }
     
-    public void paint(Graphics g) {
-        super.paint(g);
-        
-        String time = "Time left - " + timer + " seconds"; // 15
-        g.setColor(Color.BLACK);
-        g.setFont(new Font("Ariel", Font.BOLD, 25));
-        
-        if (timer > 0) { 
-            g.drawString(time, 700, 230);
-        } else {
-            g.drawString("Times up!!", 700, 230);
-        }
-        
-        timer--; // 14
-        
-        try {
-            Thread.sleep(1000);
-            repaint();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
-        if (ans_given == 1) {
-            ans_given = 0;
-            timer = 20;
-        } else if (timer < 0) {
-            timer = 20;
-            if (count == 8) {
-                next.setEnabled(false);
-                submit.setEnabled(true);
-            }
-            if (count == 9) { // submit button
-                if (groupoptions.getSelection() == null) {
-                   useranswers[count][0] = "";
-                } else {
-                    useranswers[count][0] = groupoptions.getSelection().getActionCommand();
-                }
-                
-                for (int i = 0; i < useranswers.length; i++) {
-                    if (useranswers[i][0].equals(answers[i][1])) {
-                        score += 10;
-                    } else {
-                        score += 0;
-                    }
-                }
-                setVisible(false);
-                new Score(name, score);
-            } else { // next button
-                if (groupoptions.getSelection() == null) {
-                   useranswers[count][0] = "";
-                } else {
-                    useranswers[count][0] = groupoptions.getSelection().getActionCommand();
-                }
-                count++; // 0 // 1
-                start(count);
-            }
-        }
-        
-    }
+     
     
     public void start(int count) {
         qno.setText("" + (count + 1) + ". ");
